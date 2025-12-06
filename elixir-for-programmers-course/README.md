@@ -10,8 +10,10 @@
 - Year 2022: using Elixir 1.12.3 (current version in December 2025: 1.19.4)
 - `git clone https://github.com/pragdave/e4p2-hangman.git`
 - The **OTP framework** is a sophisticated way of managing large (and small) scale deployments of applications containing thousands of modules and millions of processes.
+  - OTP **(Open Telecom Platform)** is a set of libraries that ships with Erlang
 - **hex** is the Elixir package repository. It maintains a repository of Elixir and Erlang packages (at [hex.pm](https://hex.pm/)).
-- **mix**: a project configuration management build tool
+- [**mix**](https://hexdocs.pm/mix/Mix.html): a project configuration management build tool
+- [ExUnit](https://hexdocs.pm/ex_unit/ExUnit.html) is a unit-test based framework that ships with Elixir.
 - **iex**: the Elixir REPL
   - `h IO` (help for IO module)
   - `IO.puts "Hello world!"`: puts for "put string"
@@ -33,3 +35,8 @@
   - **Dictionary** application/component
   - **Logic** application/component
   - **UI** applications/components (CLI, GUI)
+- `mix new hangman`
+  - the production code goes under `lib/`
+  - the file `mix.exs` defines the configuration of your project
+- `mix test`
+- `mix`: compile the application
