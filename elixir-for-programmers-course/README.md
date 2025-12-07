@@ -19,7 +19,8 @@
   - `IO.puts "Hello world!"`: puts for "put string"
   - `clear`
   - `h IO.puts`
-  - `v(9)`: give me the valueo of expression number 9
+  - `v(9)`: give me the value of expression number 9
+  - `v(-1)`: give me the value of the last expression
   - `#iex:break`: stop execution
   - You can customize some aspects of IEx by writing code into a file called `.iex.exs`: [example](./.iex.exs.pragdave)
     - "IEx looks for .iex.exs in the current directory and then in your home directory. My configuration above sits in my home directory, so it applies to all IEx sessions."
@@ -40,3 +41,30 @@
   - the file `mix.exs` defines the configuration of your project
 - `mix test`
 - `mix`: compile the application
+- All the functions must be inside **modules* (`defmodule`)
+- `mix run` does nothing if there is no proper entrypoint
+- `mix run -e Dictionary.hello`: `-e` for `execute`. It executes the `hello` function inside the `Dictionary` module.
+- `iex -S mix`: it runs iex with mix, which has the knowledge about our application, modules, functions, etc.
+- From inside `iex`, in order to reload a module, there are two options:
+  - `r Dictionar`: recompile Dictionary. Advantage: it allows autocompletion
+  - `c "lib/dictionary.ex"`: compile this file
+- **Module names** must be an Elixir atom. 
+  - Conventionally we use Capitalized words (MyFirstModule).
+- **Function names** are either names or one of the Elixir operators. 
+  - Names must start with a lowercase letter or underscore, and may contain letters, digits, and underscores. 
+  - The name may end with an exclamation point or a question mark.
+- From Erlang: any collection of bytes is a `binary` (strings didn't make much sense in Erlang)
+  - In Elixir, most `binary` data will be strings...
+- In Erlang/Elixir, the identification of a function consists in two parts: its name and the number of parameters it takes (arity)
+  - name / arity, e.g. `split/1`, `split/2`
+- Often Elixir has two variants of a function, such as `File.read` and `File.read!` 
+  - Most of the time this means that the plain version will return an error status on failure, and the version with the shriek will raise an exception. 
+  - This rule isn't universal, though, so check the documentation.
+- `String.codepoints(my_string)`: Split a string into a list of characters, where each entry in the list is a single character string.
+- `String.myers_difference(my_string_1, my_string_2)`calculate the set of differences between two strings
+- As a font, he uses "Fira Code"
+- **Functional Composition**
+  - Composition means chaining together functions so that the output of one becomes the input of the next.
+  - `|> a_function`: functional style, it will pass the output of the previous line as a first parameter to this function
+- **Module attributes**: they start with `@`
+  - Created and executed at compile time.
