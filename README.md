@@ -31,7 +31,7 @@
     - `/` always returns a float. Use `div()` or `rem` (reminder) for integer divisions
     - `round()`, `trunc()`
 - `is_integer`
-- `or`, `and`, `not`: better for booleans
+- `or`, `and`, `not`: only for booleans
 - `!`, `&&`, `||`: for non-booleans
 - `raise("This is an error)`
 - `nil`: absence of a value
@@ -82,4 +82,6 @@
 
 ## Elixir and LLMs
 
+- https://hexdocs.pm/claude/guide-usage-rules.html
+  - https://github.com/bradleygolden/claude-marketplace-elixir/blob/main/CLAUDE.md
 - https://elixirforum.com/t/heres-how-im-coding-elixir-with-ai-results-are-mixed-mostly-positive-how-about-you/71588
