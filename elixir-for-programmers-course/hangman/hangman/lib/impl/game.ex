@@ -14,8 +14,12 @@ defmodule Hangman.Impl.Game do
   )
 
   def new_game do
+    new_game(Dictionary.random_word())
+  end
+
+  def new_game(word) when is_binary(word) do
     %Hangman.Impl.Game{
-      letters: Dictionary.random_word() |> String.codepoints()
+      letters: word |> String.codepoints
     }
   end
 
