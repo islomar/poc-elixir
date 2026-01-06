@@ -3,6 +3,6 @@ defmodule DictionaryTest do
   doctest Dictionary
 
   test "greets the world" do
-    assert Dictionary.word_list() == :world
+    assert Dictionary.random_word() == :world
   end
 end

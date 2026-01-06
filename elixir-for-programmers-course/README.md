@@ -220,5 +220,29 @@
 - https://hexdocs.pm/elixir/typespecs.html
 
 
-## Write a text-based client
-- TBD
+## Start coding
+- The Elixir convention is to qualify all module names by prefixing them with the application name and the filesystem path (relative to lib/) that contains the source code file.
+  - For example, the file `lib/impl/game.ex` has the module name `Hangman.Impl.Game`.
+  - The `alias` function can be used to create a short name for a module. 
+- `@opaque` to make a field private
+- `defstruct` will create a structure with the same name that the module.
+  - A structure is always associated with a module, and the structure will always have the name of the module. 
+  - This is a pretty big clue: structures are meant to hold the data that is processed by that module's functions.
+  - The name of the **struct** is always the name of the module that contains its definition. Elixir conveniently declares the name `__MODULE__`, which always contains the current module name.
+- `exs`: EliXir Script
+- [`mix deps.get`](https://hexdocs.pm/mix/Mix.Tasks.Deps.Get.html): Fetches unavailable and out of date dependencies.
+- `mix deps`: Lists all dependencies and their status.
+- Author conventions: 
+  - "I personally put the logic part of my code into a directory called `lib/impl`; most in the community instead use `lib/hangman` (or whatever your application is called) for all their application's files. You'll start to see the benefits of having split directories when we look at processes."
+  - put the API in the top-level `lib/` directory, and the implementation below that.
+  - [`defdelegate`](https://hexdocs.pm/elixir/1.12.3/Kernel.html#defdelegate/2) is a fantastic way to ensure this separation.
+    - Defines a function that delegates to another module.
+    - Functions defined with `defdelegate/2` are public and can be invoked from outside the module they're defined in, as if they were defined using `def/2`.
+    - Therefore, `defdelegate/2` is about extending the current module's public API. 
+  
+### What We Saw
+- Remember to separate your API from your implementation. My convention is to put the API in the top-level lib/ directory, and the implementation below that.
+- **defdelegate** is a fantastic way to ensure this separation.
+- **alias** does more than save you typing—it also lets you decouple your code from actual module names.
+- Maps are a good way of representing state. **defstruct** can be used to make the structure static, predefining the keys and the default values.
+- Another of my habits is to put commas at the end of every element in a collection literal, and to lay the literal out with one value per line. This makes maintaining the literal (adding, deleting, sorting, and so on) easier.
