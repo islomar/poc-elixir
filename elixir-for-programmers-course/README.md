@@ -247,3 +247,9 @@
 - **alias** does more than save you typing—it also lets you decouple your code from actual module names.
 - Maps are a good way of representing state. **defstruct** can be used to make the structure static, predefining the keys and the default values.
 - Another of my habits is to put commas at the end of every element in a collection literal, and to lay the literal out with one value per line. This makes maintaining the literal (adding, deleting, sorting, and so on) easier.
+
+## Pattern matching Game State
+- Elixir's pattern matching supports a style of coding functions that can be largely condition free.
+- A `when` clause (also called a guard clause) can further restrict when a particular variant of a function can be called. The `when` is executed after the parameters are bound, so the values of parameters can be used.
+  - E.g. `def make_move(game = %{ game_state: state}, _guess) when state in [:won, :lost] do`
+- However, for both performance and reliability reasons, the `when` clause can only use a restricted set of Elixir expressions.
