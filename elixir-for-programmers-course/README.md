@@ -253,3 +253,7 @@
 - A `when` clause (also called a guard clause) can further restrict when a particular variant of a function can be called. The `when` is executed after the parameters are bound, so the values of parameters can be used.
   - E.g. `def make_move(game = %{ game_state: state}, _guess) when state in [:won, :lost] do`
 - However, for both performance and reliability reasons, the `when` clause can only use a restricted set of Elixir expressions.
+- You can pattern match into a nested value.
+  - E.g. `def score_quess(game = %{turns_left: 1}, _) . . .`
+- or you can extract that inner value into a variable:
+  - E.g. `def score_quess(game = %{turns_left: turns_left}, _) . . .`
