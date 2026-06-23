@@ -2,6 +2,7 @@
 - https://codestool.coding-gnome.com/courses/elixir-for-programmers-2
 - Dave Thomas, @pragdave
 - https://pragdave.me/
+- https://github.com/pragdave/e4p2-hangman
 - 9 hours of video
 - 88 individual course units in 20 chapters
 - 44 exercises
@@ -45,8 +46,10 @@
 - `mix run` does nothing if there is no proper entrypoint
 - `mix run -e Dictionary.hello`: `-e` for `execute`. It executes the `hello` function inside the `Dictionary` module.
 - `iex -S mix`: it runs iex with mix, which has the knowledge about our application, modules, functions, etc.
+  - **-S** means “find this script/command in your PATH and execute it before the shell starts”.
+  - So with mix, it boots your Mix project context (apps/deps/config), which is why this is the usual way to open IEx inside an Elixir project.
 - From inside `iex`, in order to reload a module, there are two options:
-  - `r Dictionar`: recompile Dictionary. Advantage: it allows autocompletion
+  - `r Dictionary`: recompile Dictionary. Advantage: it allows autocompletion
   - `c "lib/dictionary.ex"`: compile this file
 - **Module names** must be an Elixir atom. 
   - Conventionally we use Capitalized words (MyFirstModule).
@@ -58,7 +61,7 @@
 - In Erlang/Elixir, the identification of a function consists in two parts: its name and the number of parameters it takes (arity)
   - name / arity, e.g. `split/1`, `split/2`
 - Often Elixir has two variants of a function, such as `File.read` and `File.read!` 
-  - Most of the time this means that the plain version will return an error status on failure, and the version with the shriek will raise an exception. 
+  - Most of the time this means that the plain version will return an error status on **failure**, and the version with the shriek (exclamation mark) will raise an **exception**. 
   - This rule isn't universal, though, so check the documentation.
 - `String.codepoints(my_string)`: Split a string into a list of characters, where each entry in the list is a single character string.
 - `String.myers_difference(my_string_1, my_string_2)`calculate the set of differences between two strings
@@ -121,7 +124,7 @@
     ```    
 - **Tuples**
   - A tuple is a fixed-length collection of values.
-  - Typically tuples are small (two or three elements). They are frequently used to pass flagged values to and from functions.
+  - Typically, tuples are small (two or three elements). They are frequently used to pass flagged values to and from functions.
   - E.g. `{ :ok, contents }`
 - **Lists**
   - Lists are NOT arrays
@@ -192,7 +195,7 @@
   - Enum is probably the most used module in Elixir.
 
 ## Let's start coding
-- **tally**
+- **tally** (cálculo, cómputo, marcador, recuento, registro, conteo, puntuación, puntuación de un juego)
   - Public
   - current score, etc.
   - client-side value
@@ -257,3 +260,16 @@
   - E.g. `def score_quess(game = %{turns_left: 1}, _) . . .`
 - or you can extract that inner value into a variable:
   - E.g. `def score_quess(game = %{turns_left: turns_left}, _) . . .`
+
+## Write a Text-based client
+- We don't have loops in Elixir
+  - **Throughout functional programming**: we use recursion instead of loops.
+  - If the function is **tail recursive** (the last thing you do is calling the function itself), the compiler can optimize it to avoid stack overflow: it's like a "goto" statement, it does not consume memory
+    - It the compiler determines that the last thing that a function does before exiting is to call itself, then it can replace that call with a simple jump back to the top of the function's code.
+    - --> **Tail Call Optimization (TCO)**
+  - "To iterate is human, to recurse, divine."
+    - L. Peter Deutsch: https://en.wikipedia.org/wiki/L._Peter_Deutsch
+- Every pattern match (assignment) creates a new variable
+
+## Refactor the Dictionary
+- TBD
