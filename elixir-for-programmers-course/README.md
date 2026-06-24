@@ -70,7 +70,7 @@
   - Composition means chaining together functions so that the output of one becomes the input of the next.
   - `|> a_function`: functional style, it will pass the output of the previous line as a first parameter to this function
 - **Module attributes**: they start with `@`
-  - Created and executed at compile time.
+  - Created and executed **at compile time**
 
 ## A mad dash through Elixir types
 - Also see [this](../README.md)
@@ -262,6 +262,7 @@
   - E.g. `def score_quess(game = %{turns_left: turns_left}, _) . . .`
 
 ## Write a Text-based client
+- https://github.com/pragdave/e4p2-hangman/blob/06-03-finish_the_text_client
 - We don't have loops in Elixir
   - **Throughout functional programming**: we use recursion instead of loops.
   - If the function is **tail recursive** (the last thing you do is calling the function itself), the compiler can optimize it to avoid stack overflow: it's like a "goto" statement, it does not consume memory
@@ -272,4 +273,7 @@
 - Every pattern match (assignment) creates a new variable
 
 ## Refactor the Dictionary
+- https://github.com/pragdave/e4p2-hangman/blob/07-02-refactor_the_dictionary
+
+## Processes and Maintaining State
 - TBD
