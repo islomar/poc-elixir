@@ -19,7 +19,10 @@
 ## Basics
 
 - Elixir is a dynamically-typed language, meaning that the type of a variable is only checked at runtime.
-- Elixir is a **functional-programming language** and requires all named functions to be defined in a module. The `defmodule` keyword is used to define a module. All modules are available to all other modules at runtime and do not require an access modifier to make them visible to other parts of the program. A *module* is analogous to a class in other programming languages.
+- Elixir is a **functional-programming language** and requires all named functions to be defined in a module.
+  The `defmodule` keyword is used to define a module.
+  All modules are available to all other modules at runtime and do not require an access modifier to make them visible to other parts of the program.
+  A *module* is analogous to a class in other programming languages.
 - **Named Functions** must be defined in a module. The `def` keyword is used to define a public named function.
   - The value of the last expression in a function is always implicitly returned.
   - The `defp` keyword can be used instead of `def` to define a private function. Private functions can only be used from within the same module that defined them.
@@ -27,9 +30,12 @@
 - It is common to refer to functions with their **arity**. The arity of a function is the number of arguments it accepts.
 - **Naming conventions**
   - Module names should use `PascalCase`. A module name must start with an uppercase letter A-Z and can contain letters `a-zA-Z`, numbers `0-9`, and underscores `_`.
-  - Variable and function names should use `snake_case`. A variable or function name must start with a lowercase letter `a-z` or an underscore `_`, can contain letters `a-zA-Z`, numbers `0-9`, and underscores `_`, and might end with a question mark `?` or an exclamation mark ``!.
+  - Variable and function names should use `snake_case`.
+    A variable or function name must start with a lowercase letter `a-z` or an underscore `_`,
+    can contain letters `a-zA-Z`, numbers `0-9`, and underscores `_`, and might end with a question mark `?` or an exclamation mark `!`.
 - <https://hexdocs.pm/elixir>
-- Most built-in data types have a corresponding module that offers functions for working with that data type, e.g. there's the `Integer` module for integers, `String` module for strings, `List` module for lists and so on.
+- Most built-in data types have a corresponding module that offers functions for working with that data type,
+  e.g. there's the `Integer` module for integers, `String` module for strings, `List` module for lists and so on.
 - A notable module is the `Kernel` module. It provides the basic capabilities on top of which the rest of the standard library is built, like arithmetic operators, control-flow macros, and much more
 - Single line comments in Elixir are preceded by `#`.
 
